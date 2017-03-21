@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.blog.dao.BlogTypeDao">
+    <resultMap id="BlogTypeResult" type="BlogType">
+        <id property="id" column="id"/>
+        <result property="typeName" column="typeName"/>
+        <result property="orderNum" column="orderNum"/>
+        <result property="blogCount" column="blogCount"/>
+    </resultMap>
+
+    <select id="findById" parameterType="Integer" resultMap="BlogTypeResult">
+        select * from t_blogtype where id = #{id}
+    </select>
+    <select id="listBlogType" resultMap="BlogTypeResult">
+        select * from t_blogtype
+    </select>
+    <insert id="addBlogType" parameterType="BlogType" useGeneratedKeys="true" keyProperty="id">
+        insert into t_blogtype VALUES (null,#{typeName},#{orderNum})
+    </insert>
+    <update id="editBlogType" parameterType="BlogType">
+        UPDATE t_blogtype SET typeName = #{typeName},orderNum = #{orderNum} WHERE id = #{id}
+    </update>
+    <delete id="deleteBlogType" parameterType="Integer">
+        DELETE FROM t_blogtype WHERE id = #{id}
+    </delete>
+</mapper>

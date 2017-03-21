@@ -1,0 +1,135 @@
+body{
+    font-family: 微软雅黑,serif;
+    color:#757778;
+    background: #F5F5F5;//linear-gradient(to top right,#F87563,#F2B982);
+}
+a{
+    color:#4385BC;
+}
+a:hover{
+    color:#5D653A;
+}
+h1,h2,h3{
+    color:#000000;
+}
+img{
+    width:140px;
+}
+.data-list .navbar-default{
+    background-color: #FCFCFC;
+}
+.column{
+    padding:0;
+}
+.data-list{
+    border:1px solid #E7E7E7;
+    border-radius: 15px;
+    background: #FCFCFC;
+    opacity: 0.8;
+    margin:5px;
+    padding:10px;
+}
+
+.img{
+    text-align: center;
+}
+.page-header{
+    height:80px;
+}
+.page-header h2{
+    float:left;
+}
+.navbar-default{
+    background-color: #F3EADF;
+    border:none;
+    color:#D3B196;
+}
+.navbar-nav ul li a{
+    color:#D3B196;
+}
+.title{
+    border-bottom: 1px solid #053F4D;
+    padding-bottom:5px;
+    margin-bottom:10px;
+}
+
+.blog_title{
+    margin-top:30px;
+    text-align: center;
+}
+.data_name{
+    text-align: center;
+    font-size:16px;
+}
+.pagination{
+    float:right;
+}
+.article-ever{
+    border-bottom:1px dashed #757778;
+}
+.article-list-content{
+    text-indent: 2em;
+}
+.article-list-comment{
+    text-align: right;
+    padding-bottom:5px;
+}
+.clea{
+    clear:both;
+}
+
+
+.blog_info{
+    margin-top: 30px;
+    color: #666;
+    text-align: center;
+
+}
+
+.blog_content{
+    margin-top:50px;
+    padding-bottom: 30px;
+}
+
+.data-list .commentDatas{
+    padding: 10px;
+}
+
+.data-list .commentDatas .comment,.data-list .commentDatas .otherComment{
+    margin-top:10px;
+    margin-bottom: 5px;
+    padding-bottom:15px;
+    border-bottom: 1px dotted gray;
+}
+
+.data-list .commentDatas .comment font, .data-list .commentDatas .otherComment font{
+    font-weight: bold;
+}
+
+.data-list .commentDatas .otherComment{
+    display: none;
+}
+
+.data-list .publish_comment{
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.data-list .publish_comment .publishButton{
+    padding-top:10px;
+    float: right;
+}
+
+
+.data-list .verCode{
+    padding-top:10px;
+    padding-left:10px;
+    float: left;
+}
+
+.data-list .search{
+    padding: 5px;
+}
+@media screen and (max-width: 414px){
+
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.blog.dao.BlogDao">
+    <resultMap id="BlogResult" type="Blog">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="summary" column="summary"/>
+        <result property="releaseDate" column="releaseDate"/>
+        <result property="clickHit" column="clickHit"/>
+        <result property="replyHit" column="replyHit"/>
+        <result property="content" column="content"/>
+        <result property="keyWord" column="keyWord"/>
+        
+        <association property="blogType" column="type_id" select="ssm.blog.dao.BlogTypeDao.findById"/>
+    </resultMap>
+    <select id="countBlog" resultType="Integer">
+      SELECT COUNT(*) FROM t_blog
+    </select>
+    <select id="listBlog" resultMap="BlogResult">
+        SELECT  * FROM t_blog ORDER BY releaseDate
+        <if test="start != null and pageSize != null">
+            limit #{start},#{pageSize}
+        </if>
+    </select>
+    <insert id="addBlog" parameterType="Blog" keyProperty="id" useGeneratedKeys="true">
+        insert into t_blog values(null,#{title},#{summary},now(),0,0,#{content},#{keyWord},#{blogType.id})
+    </insert>
+    <select id="listByBlogTypeId" parameterType="Integer" resultMap="BlogResult">
+        SELECT * FROM t_blog WHERE type_id = #{blogTypeId}
+    </select>
+    <select id="findById" parameterType="Integer" resultMap="BlogResult">
+        SELECT * FROM t_blog WHERE id = #{id}
+    </select>
+    <update id="editBlog" parameterType="Blog">
+        UPDATE t_blog <set>
+        <if test="title!=null and title!=''">
+            title=#{title},
+        </if>
+        <if test="summary!=null and summary!=''">
+            summary=#{summary},
+        </if>
+        <if test="content!=null and content!=''">
+            content=#{content},
+        </if>
+        <if test="blogType.id!=null">
+            type_id=#{blogType.id},
+        </if>
+        <if test="clickHit!=null">
+            clickHit=#{clickHit},
+        </if>
+        <if test="replyHit!=null">
+            replyHit=#{replyHit},
+        </if>
+        <if test="keyWord!=null and keyWord!=''">
+            keyWord=#{keyWord},
+        </if>
+    </set>
+        where id=#{id}
+    </update>
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM t_blog WHERE id = #{id}
+    </delete>
+</mapper>
